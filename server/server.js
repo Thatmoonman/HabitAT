@@ -4,6 +4,8 @@ import records from "./routes/record.js";
 
 const PORT = process.env.PORT || 5050;
 const app = express();
+console.log(process.env.ATLAS_URI)
+
 
 app.use(cors());
 app.use(express.json());
