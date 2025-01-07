@@ -5,8 +5,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import App from "./App";
-import Record from "./components/Record";
-import RecordList from "./components/RecordList";
+// import Record from "./components/Record";
+// import RecordList from "./components/RecordList";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -16,30 +16,30 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <RecordList />,
+        // element: <RecordList />,
       },
     ],
   },
-  {
-    path: "/edit/:id",
-    element: <App />,
-    children: [
-      {
-        path: "/edit/:id",
-        element: <Record />,
-      },
-    ],
-  },
-  {
-    path: "/create",
-    element: <App />,
-    children: [
-      {
-        path: "/create",
-        element: <Record />,
-      },
-    ],
-  },
+  // {
+  //   path: "/edit/:id",
+  //   element: <App />,
+  //   children: [
+  //     {
+  //       path: "/edit/:id",
+  //       element: <Record />,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: "/create",
+  //   element: <App />,
+  //   children: [
+  //     {
+  //       path: "/create",
+  //       element: <Record />,
+  //     },
+  //   ],
+  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
