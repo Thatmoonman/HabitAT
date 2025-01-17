@@ -1,28 +1,35 @@
-//model:: habitID: {
+//model: {
+// id: number
 // name: string,
 // frequency: number (ex: 1 = every '1' day; 4 = every '4' days),
 // category: string
 //}
 
-const habits = {
-    1: {
+const habits = [
+    {
+        id: 1,
         name: "read book 1",
         frequency: 1,
         category: "reading"
     },
-    2: {
+    {
+        id: 2,
         name: "read book 2",
         frequency: 3,
         category: "reading"
     },
-    3: {
+    {
+        id: 3,
         name: "yoga",
         frequency: 7,
         category: "exercise"
     },
-    4: {
-        name: ""
+    {
+        id: 4,
+        name: "habitAT",
+        frequency: 3,
+        category: "programming"
     }
-}
+]
 
-export default {habits}
+export default habits
