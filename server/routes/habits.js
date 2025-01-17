@@ -13,14 +13,14 @@ const router = express.Router();
 
 // This section will help you get a list of all the records.
 router.get("/", async (req, res) => {
-  let collection = await db.collection("records");
+  let collection = await db.collection("habits");
   let results = await collection.find({}).toArray();
   res.send(results).status(200);
 });
 
 // This section will help you get a single record by id
 router.get("/:id", async (req, res) => {
-  let collection = await db.collection("records");
+  let collection = await db.collection("habits");
   let query = { _id: new ObjectId(req.params.id) };
   let result = await collection.findOne(query);
 
@@ -31,17 +31,15 @@ router.get("/:id", async (req, res) => {
 // This section will help you create a new record.
 router.post("/", async (req, res) => {
   try {
-    let newDocument = {
-      name: req.body.name,
-      position: req.body.position,
-      level: req.body.level,
+    let newHabit = {
+        name: req.body.name,
     };
-    let collection = await db.collection("records");
-    let result = await collection.insertOne(newDocument);
+    let collection = await db.collection("habits");
+    let result = await collection.insertOne(newHabit);
     res.send(result).status(204);
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error adding record");
+    res.status(500).send("Error adding habit");
   }
 });
 
