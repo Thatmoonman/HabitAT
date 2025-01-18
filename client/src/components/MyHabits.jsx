@@ -10,23 +10,23 @@ export default function MyHabits () {
         switch (selector) {
             case "name":
                 if (selectionAscending) {
-                    habitOrder = habits.sort((a, b) => a.name.localeCompare(b.name))
-                } else {
                     habitOrder = habits.sort((a, b) => b.name.localeCompare(a.name))
+                } else {
+                    habitOrder = habits.sort((a, b) => a.name.localeCompare(b.name))
                 }
                 break;
             case "frequency":
                 if (selectionAscending) {
-                    habitOrder = habits.sort((a, b) => a.frequency - b.frequency)
-                } else {
                     habitOrder = habits.sort((a, b) => b.frequency - a.frequency)
+                } else {
+                    habitOrder = habits.sort((a, b) => a.frequency - b.frequency)
                 }
                 break;
             case "category":
                 if (selectionAscending){
-                    habitOrder = habits.sort((a, b) => a.category.localeCompare(b.category))
-                } else {
                     habitOrder = habits.sort((a, b) => b.category.localeCompare(a.category))
+                } else {
+                    habitOrder = habits.sort((a, b) => a.category.localeCompare(b.category))
                 }
                 break;
             case "history":
@@ -49,6 +49,8 @@ export default function MyHabits () {
     const handleSelection = (event) => {
         setSelector(event.target.value)
     }
+
+    console.log(habits)
 
 
     return (
@@ -80,7 +82,7 @@ export default function MyHabits () {
             </label>
             <ul>
                 {habitOrder.map(habit => (
-                    <li key={habit.id}>Name: {habit.name}, Frequency: {habit.frequency}, Category: {habit.category}</li>
+                    <li key={habit.id}>Name: {habit.name}, Frequency: every {habit.frequency} day(s), Category: {habit.category}</li>
                 ))}
             </ul>
         </>
