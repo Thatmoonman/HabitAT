@@ -2,7 +2,8 @@
 // id: number
 // name: string,
 // frequency: number (ex: 1 = every '1' day; 4 = every '4' days),
-// category: string
+// category: string,
+// history: [date-time]
 //}
 
 const habits = [
@@ -10,25 +11,29 @@ const habits = [
         id: 1,
         name: "read book 1",
         frequency: 1,
-        category: "reading"
+        category: "reading",
+        history: []
     },
     {
         id: 2,
         name: "read book 2",
         frequency: 3,
-        category: "reading"
+        category: "reading",
+        history: []
     },
     {
         id: 3,
         name: "yoga",
         frequency: 7,
-        category: "exercise"
+        category: "exercise",
+        history: []
     },
     {
         id: 4,
         name: "habitAT",
         frequency: 3,
-        category: "programming"
+        category: "programming",
+        history: []
     }
 ]
 
