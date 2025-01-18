@@ -85,6 +85,14 @@ export default function MyHabits () {
                     <li key={habit.id}>Name: {habit.name}, Frequency: every {habit.frequency} day(s), Category: {habit.category}</li>
                 ))}
             </ul>
+
+            <br/>
+            <p>TODO: </p>
+            <p>- Styling of habit cards, perhaps make a seperate habitCard file to keep clean</p>
+            <p>- Today's suggested habits based on history</p>
+            <p>- CRUD functionality for habits</p>
+            <p>- Generate Habit grid with color coding for history and frequency</p>
+            <p>- Connect to proper backend db</p>
         </>
     )
 }
