@@ -1,4 +1,5 @@
 import { useState } from "react"
+import CalendarBox from "./CalendarBox"
 
 
 const HabitCalendar = (props) => {
@@ -49,14 +50,8 @@ const HabitCalendar = (props) => {
                                 <td>{habits[i].name}</td>
                                 {row.map((cell, j) => (
                                     <td key={j}>
-                                        <input 
-                                            type="radio" 
-                                            value={habits[i].name} 
-                                            onChange={() => performHabit(habits[i], i, j, dates[j + 1])}
-                                            checked={calendar[i][j]}
-                                        />
+                                        <CalendarBox habit={habits[i]} performed={cell} performHabit={performHabit} date={dates[j + 1]}/>
                                     </td>
-                                    // <td key={j} onClick={() => performHabit(habits[i], i, j, dates[j + 1])}>{calendar[i][j] ? 'X' : 'O'}</td>
                                 ))}
                             </>
                         </tr>
@@ -66,17 +61,9 @@ const HabitCalendar = (props) => {
         )
     }
 
-    const performHabit = (habit, habitIdx, dateIdx, date) => {
-        if (habit.history.includes(date)) {
-            habit.history = habit.history.filter(d => d !== date)
-        } else {
-            habit.history.push(date)
-            habit.history = habit.history.sort((a, b) => a - b)
-        }
-
-        habits[habitIdx] = habit
-        calendar[habitIdx][dateIdx] = !calendar[habitIdx][dateIdx]
-        setCalendar(calendar)
+    const performHabit = (habit, date) => {
+        //perform UPDATE here
+        console.log(`habit updated for ${habit.name} on ${date}`)
     }
 
     return buildCalendarTable()

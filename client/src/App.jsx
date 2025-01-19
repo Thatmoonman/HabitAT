@@ -3,7 +3,7 @@
 import MyHabits from "./components/MyHabits";
 import habits from "../../server/testing/mockData/mockHabitData";
 import SuggestedHabits from "./components/SuggestedHabits";
-import HabitCalendar from "./components/HabitCalendar";
+import HabitCalendar from "./components/Calendar/HabitCalendar";
 
 const App = () => {
   return (
