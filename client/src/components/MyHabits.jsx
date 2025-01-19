@@ -79,9 +79,9 @@ export default function MyHabits (props) {
             <br/><br/>
             <p>TODO: </p>
             <p>- Styling of habit cards</p>
-            <p>- Today's suggested habits based on history</p>
+            <p>- Styling of suggested habits</p>
             <p>- CRUD functionality for habits</p>
-            <p>- Generate Habit grid with color coding for history and frequency</p>
+            <p>- Habit grid editable (ie, perform/unperform habit with a click that also UPDATES habit backend)</p>
             <p>- Connect to proper backend db</p>
             <br/><br/>
         </>

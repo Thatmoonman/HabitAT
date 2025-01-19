@@ -3,6 +3,10 @@
 const HabitCalendar = (props) => {
     const habits = props.habits
     const CALENDARLENGTH = 14
+
+    const performHabit = (habit) => {
+        console.log(habit)
+    }
     
     const buildCalendarBody = () => {
         const calendar = []
@@ -39,8 +43,8 @@ const HabitCalendar = (props) => {
                         <tr key={i}>
                             <>
                                 <td>{habits[i].name}</td>
-                                {row.map((cell, i) => (
-                                    <td key={i}>{cell ? 'X' : 'O'}</td>
+                                {row.map((cell, j) => (
+                                    <td key={j} onClick={() => performHabit(habits[i])}>{cell ? 'X' : 'O'}</td>
                                 ))}
                             </>
                         </tr>

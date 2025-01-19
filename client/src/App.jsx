@@ -11,7 +11,7 @@ const App = () => {
       {/* <Navbar /> */}
       {/* <Outlet /> */}
       <MyHabits habits={habits}/>
-      {/* <SuggestedHabits habits={habits}/> */}
+      <SuggestedHabits habits={habits}/>
       <HabitCalendar habits={habits}/>
     </div>
   );

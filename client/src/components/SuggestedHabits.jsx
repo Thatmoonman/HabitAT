@@ -6,7 +6,7 @@ const SuggestedHabits = (props) => {
     const today = new Date().getDate()
     
     const overdueHabits = habits.filter(habit => {
-        const lastPerfomed = habit.history[0].getDate()
+        const lastPerfomed = new Date(habit.history[0]).getDate()
         if (!lastPerfomed) {
             return true
         } else if (habit.frequency <= today - lastPerfomed) {
