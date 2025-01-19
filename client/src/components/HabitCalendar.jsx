@@ -6,7 +6,7 @@ const HabitCalendar = (props) => {
     
     const buildCalendarBody = () => {
         const calendar = []
-        let dates = []
+        let dates = [""]
 
         for (let i = 0; i <= CALENDARLENGTH; i++) {
             const nextDate = new Date()
@@ -20,7 +20,6 @@ const HabitCalendar = (props) => {
 
             for (let j = 0; j <= CALENDARLENGTH; j++) {
                 let date = dates[j]
-                console.log(habit.history, date)
                 habitRow.push(habit.history.includes(date))
             }
             calendar.push(habitRow)
@@ -31,7 +30,7 @@ const HabitCalendar = (props) => {
                 <thead>
                     <tr>
                     {dates.map((date, i) => (
-                        <th key={i}>{date}</th>
+                        <th key={i} style={{writingMode: "vertical-rl"}}>{date}</th>
                     ))}
                     </tr>
                 </thead>
