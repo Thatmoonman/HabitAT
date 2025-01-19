@@ -22,28 +22,28 @@ const habits = [
         name: "read book 1",
         frequency: 1,
         category: "reading",
-        history: [today, yesterday, weekago]
+        history: [today, yesterday, weekago].map((date) => date.toLocaleDateString())
     },
     {
         id: 2,
         name: "read book 2",
         frequency: 3,
         category: "reading",
-        history: [almostweekago]
+        history: [almostweekago].map((date) => date.toLocaleDateString())
     },
     {
         id: 3,
         name: "yoga",
         frequency: 7,
         category: "exercise",
-        history: [almostweekago, weekago]
+        history: [almostweekago, weekago].map((date) => date.toLocaleDateString())
     },
     {
         id: 4,
         name: "habitAT",
         frequency: 3,
         category: "programming",
-        history: [threedaysago]
+        history: [threedaysago].map((date) => date.toLocaleDateString())
     }
 ]
 

@@ -17,7 +17,7 @@ const SuggestedHabits = (props) => {
         }
     })
 
-    const suggestionOrder = () => {
+    const suggestOrder = () => {
         const overdueOrder = overdueHabits.sort((a, b) => a.overdue - b.overdue)
 
         return (
@@ -38,7 +38,7 @@ const SuggestedHabits = (props) => {
     return (
         <>
             <h1>Suggested Habits</h1>
-            {suggestionOrder()}
+            {suggestOrder()}
         </>
     )
 }

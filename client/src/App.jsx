@@ -3,6 +3,7 @@
 import MyHabits from "./components/MyHabits";
 import habits from "../../server/testing/mockData/mockHabitData";
 import SuggestedHabits from "./components/SuggestedHabits";
+import HabitCalendar from "./components/HabitCalendar";
 
 const App = () => {
   return (
@@ -10,7 +11,8 @@ const App = () => {
       {/* <Navbar /> */}
       {/* <Outlet /> */}
       <MyHabits habits={habits}/>
-      <SuggestedHabits habits={habits}/>
+      {/* <SuggestedHabits habits={habits}/> */}
+      <HabitCalendar habits={habits}/>
     </div>
   );
 };
