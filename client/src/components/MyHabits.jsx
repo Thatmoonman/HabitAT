@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
-import habits from "../../../server/testing/mockData/mockHabitData"
 import HabitCard from "./HabitCard"
 
-export default function MyHabits () {
+export default function MyHabits (props) {
+    const habits = props.habits
+    let habitOrder = habits
+    const CATEGORIES = ["Name", "Frequency", "Category", "History"]
+
     const [selector, setSelector] = useState('name')
     const [selectionAscending, setSelectionAscending] = useState(false)
-    const CATEGORIES = ["Name", "Frequency", "Category", "History"]
-    let habitOrder = habits
 
     const sortHabits = () => {
         switch (selector) {
@@ -72,16 +73,17 @@ export default function MyHabits () {
                 Descending
             </label>
             <ul>
-                {habitOrder.map(habit => HabitCard(habit))}
+                {habitOrder.map(habit => <HabitCard habit={habit} key={habit.id}/>)}
             </ul>
 
-            <br/>
+            <br/><br/>
             <p>TODO: </p>
-            <p>- Styling of habit cards, perhaps make a seperate habitCard file to keep clean</p>
+            <p>- Styling of habit cards</p>
             <p>- Today's suggested habits based on history</p>
             <p>- CRUD functionality for habits</p>
             <p>- Generate Habit grid with color coding for history and frequency</p>
             <p>- Connect to proper backend db</p>
+            <br/><br/>
         </>
     )
 }
