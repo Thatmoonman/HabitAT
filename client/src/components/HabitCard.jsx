@@ -1,7 +1,7 @@
 
 const HabitCard = (habit) => {
 
-    console.log(habit.history[0])
+    
     return (
         <div key={habit.id}>
             <h1>{habit.name}</h1>

@@ -5,32 +5,33 @@ import HabitCard from "./HabitCard"
 export default function MyHabits () {
     const [selector, setSelector] = useState('name')
     const [selectionAscending, setSelectionAscending] = useState(false)
+    const CATEGORIES = ["Name", "Frequency", "Category", "History"]
     let habitOrder = habits
 
     const sortHabits = () => {
         switch (selector) {
-            case "name":
+            case "Name":
                 if (selectionAscending) {
                     habitOrder = habits.sort((a, b) => b.name.localeCompare(a.name))
                 } else {
                     habitOrder = habits.sort((a, b) => a.name.localeCompare(b.name))
                 }
                 break;
-            case "frequency":
+            case "Frequency":
                 if (selectionAscending) {
                     habitOrder = habits.sort((a, b) => b.frequency - a.frequency)
                 } else {
                     habitOrder = habits.sort((a, b) => a.frequency - b.frequency)
                 }
                 break;
-            case "category":
+            case "Category":
                 if (selectionAscending){
                     habitOrder = habits.sort((a, b) => b.category.localeCompare(a.category))
                 } else {
                     habitOrder = habits.sort((a, b) => a.category.localeCompare(b.category))
                 }
                 break;
-            case "history":
+            case "History":
                 if (selectionAscending) {
                     habitOrder = habits.sort((a, b) => a.history[0] - b.history[0])
                 } else {
@@ -55,22 +56,13 @@ export default function MyHabits () {
     return (
         <>
             <h1>MY HABITS</h1>
-            <label>
-                <input type="radio" value="name" onChange={handleSelection} checked={selector === "name"}/>
-                Name
-            </label>
-            <label>
-                <input type="radio" value="frequency" onChange={handleSelection} checked={selector === "frequency"}/>
-                Frequency
-            </label>
-            <label>
-                <input type="radio" value="category" onChange={handleSelection} checked={selector === "category"}/>
-                Category
-            </label>
-            <label>
-                <input type="radio" value="history" onChange={handleSelection} checked={selector === "history"}/>
-                History
-            </label>
+
+            {CATEGORIES.map((category, i) => (
+                <label key={i}>
+                    <input type="radio" value={category} onChange={handleSelection} checked={selector === category}/>
+                    {category}
+                </label>
+            ))}
             <label>
                 <input type="radio" onChange={() => setSelectionAscending(true)} checked={selectionAscending}/>
                 Ascending
