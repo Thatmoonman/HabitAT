@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import habits from "../../../server/testing/mockData/mockHabitData"
+import HabitCard from "./HabitCard"
 
 export default function MyHabits () {
     const [selector, setSelector] = useState('name')
@@ -50,8 +51,6 @@ export default function MyHabits () {
         setSelector(event.target.value)
     }
 
-    console.log(habits)
-
 
     return (
         <>
@@ -81,9 +80,7 @@ export default function MyHabits () {
                 Descending
             </label>
             <ul>
-                {habitOrder.map(habit => (
-                    <li key={habit.id}>Name: {habit.name}, Frequency: every {habit.frequency} day(s), Category: {habit.category}</li>
-                ))}
+                {habitOrder.map(habit => HabitCard(habit))}
             </ul>
 
             <br/>
