@@ -1,16 +1,13 @@
+import { useState } from "react"
 
 
 const HabitCalendar = (props) => {
     const habits = props.habits
     const CALENDARLENGTH = 14
-
-    const performHabit = (habit) => {
-        console.log(habit)
-    }
+    let dates = [""]
     
     const buildCalendarBody = () => {
-        const calendar = []
-        let dates = [""]
+        let calendarBody = []
 
         for (let i = 0; i <= CALENDARLENGTH; i++) {
             const nextDate = new Date()
@@ -26,9 +23,16 @@ const HabitCalendar = (props) => {
                 let date = dates[j]
                 habitRow.push(habit.history.includes(date))
             }
-            calendar.push(habitRow)
-        }
 
+            calendarBody.push(habitRow)
+        }
+        
+        return calendarBody
+    }
+
+    const [calendar, setCalendar] = useState(buildCalendarBody())
+
+    const buildCalendarTable = () => {
         return (
             <table>
                 <thead>
@@ -44,7 +48,15 @@ const HabitCalendar = (props) => {
                             <>
                                 <td>{habits[i].name}</td>
                                 {row.map((cell, j) => (
-                                    <td key={j} onClick={() => performHabit(habits[i])}>{cell ? 'X' : 'O'}</td>
+                                    <td key={j}>
+                                        <input 
+                                            type="radio" 
+                                            value={habits[i].name} 
+                                            onChange={() => performHabit(habits[i], i, j, dates[j + 1])}
+                                            checked={calendar[i][j]}
+                                        />
+                                    </td>
+                                    // <td key={j} onClick={() => performHabit(habits[i], i, j, dates[j + 1])}>{calendar[i][j] ? 'X' : 'O'}</td>
                                 ))}
                             </>
                         </tr>
@@ -54,7 +66,20 @@ const HabitCalendar = (props) => {
         )
     }
 
-    return buildCalendarBody()
+    const performHabit = (habit, habitIdx, dateIdx, date) => {
+        if (habit.history.includes(date)) {
+            habit.history = habit.history.filter(d => d !== date)
+        } else {
+            habit.history.push(date)
+            habit.history = habit.history.sort((a, b) => a - b)
+        }
+
+        habits[habitIdx] = habit
+        calendar[habitIdx][dateIdx] = !calendar[habitIdx][dateIdx]
+        setCalendar(calendar)
+    }
+
+    return buildCalendarTable()
 }
 
 export default HabitCalendar
