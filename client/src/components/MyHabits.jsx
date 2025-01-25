@@ -6,7 +6,7 @@ export default function MyHabits (props) {
     let habitOrder = habits
     const CATEGORIES = ["Name", "Frequency", "Category", "History"]
 
-    const [selector, setSelector] = useState('name')
+    const [selector, setSelector] = useState('Name')
     const [selectionAscending, setSelectionAscending] = useState(false)
 
     const sortHabits = () => {

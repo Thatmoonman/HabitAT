@@ -8,6 +8,9 @@ import App from "./App";
 // import Record from "./components/Record";
 // import RecordList from "./components/RecordList";
 import "./index.css";
+import MyHabits from "./components/MyHabits";
+import SuggestedHabits from "./components/SuggestedHabits";
+import HabitCalendar from "./components/Calendar/HabitCalendar";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        // element: <RecordList />,
+        element: <MyHabits />
       },
     ],
   },
