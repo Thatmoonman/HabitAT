@@ -8,9 +8,7 @@ import App from "./App";
 // import Record from "./components/Record";
 // import RecordList from "./components/RecordList";
 import "./index.css";
-import MyHabits from "./components/MyHabits";
-import SuggestedHabits from "./components/SuggestedHabits";
-import HabitCalendar from "./components/Calendar/HabitCalendar";
+import MyHabits from "./components/Habits/MyHabits";
 
 const router = createBrowserRouter([
   {
