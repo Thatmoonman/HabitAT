@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import HabitCard from "./HabitCard"
 
-export default function MyHabits (props) {
+const MyHabits = (props) => {
     const habits = props.habits
     let habitOrder = habits
     const CATEGORIES = ["Name", "Frequency", "Category", "History"]
@@ -87,3 +87,5 @@ export default function MyHabits (props) {
         </>
     )
 }
+
+export default MyHabits

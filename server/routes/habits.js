@@ -33,9 +33,12 @@ router.post("/", async (req, res) => {
   try {
     let newHabit = {
         name: req.body.name,
+        frequency: req.body.frequency,
+        category: req.body.category,
+        history: []
     };
-    let collection = await db.collection("habits");
-    let result = await collection.insertOne(newHabit);
+    let habits = await db.habits("habits");
+    let result = await habits.insertOne(newHabit);
     res.send(result).status(204);
   } catch (err) {
     console.error(err);
@@ -50,17 +53,18 @@ router.patch("/:id", async (req, res) => {
     const updates = {
       $set: {
         name: req.body.name,
-        position: req.body.position,
-        level: req.body.level,
+        frequency: req.body.frequency,
+        category: req.body.category,
+        history: req.body.history
       },
     };
 
-    let collection = await db.collection("records");
-    let result = await collection.updateOne(query, updates);
+    let habits = await db.habits("habits");
+    let result = await habits.updateOne(query, updates);
     res.send(result).status(200);
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error updating record");
+    res.status(500).send("Error updating habit");
   }
 });
 
@@ -69,8 +73,8 @@ router.delete("/:id", async (req, res) => {
   try {
     const query = { _id: new ObjectId(req.params.id) };
 
-    const collection = db.collection("records");
-    let result = await collection.deleteOne(query);
+    const habits = db.habits("habits");
+    let result = await habits.deleteOne(query);
 
     res.send(result).status(200);
   } catch (err) {
