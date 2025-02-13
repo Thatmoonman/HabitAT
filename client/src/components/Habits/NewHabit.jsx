@@ -6,18 +6,40 @@ const NewHabit = () => {
     const [frequency, setFrequency] = useState("")
     const [category, setCategory] = useState("")
 
+    const submitNewHabit = async (habit) => {
+        try {
+          const response = await fetch(`http://localhost:5050/habits`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(habit),
+          });
+      
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+        } catch (error) {
+          console.error('A problem occurred with your fetch operation: ', error);
+        }
+    }
+
+    const resetForm = () => {
+        setName("")
+        setFrequency("")
+        setCategory("")
+    }
+
     const handleNewHabit = (e) => {
         e.preventDefault()
 
         const newHabit = {
             name: name,
             frequency: frequency,
-            category: category,
-            history: []
+            category: category
         }
-
-        console.log(newHabit)
-        //post new habit to server
+        
+        submitNewHabit(newHabit)
         setShowNewHabitForm(false)
     }
 
